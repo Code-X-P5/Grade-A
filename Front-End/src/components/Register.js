@@ -13,7 +13,9 @@ const [adress,setadress]=useState('')
 const [role,setrole]=useState('')
 
 const userHandler=(e)=>{
-    setuserName(e.target.value)
+    setuserName(e.target.value);
+    let name =userName
+    console.log(name)
 }
 const emailHandler=(e)=>{
     setemail(e.target.value)
@@ -33,8 +35,12 @@ const adressHandler=(e)=>{
 const roleHandler=()=>{
     setrole("instructor")
 }
-const onSignUp=(userName,adress,email,password,phone)=>{
-    axios.post("/register/:role",{userName,adress,email,password,phone})
+const onSignUp=(name,adress,email,password,phone)=>{
+    axios.post(`http://localhost:5000/registration/register/${role}`,{name,adress,email,password,phone})
+        .then((response)=>{
+            console.log("done")
+        })
+        .catch((err)=>{throw err})
 }
 
     return (
@@ -63,7 +69,7 @@ const onSignUp=(userName,adress,email,password,phone)=>{
                             <label > Register as a Instructor</label>
                         </div>
                 <div className="signup">
-                    <button onClick={onSignUp}>Sign Up</button>
+                    <button onClick={onSignUp()}>Sign Up</button>
                     <p>By signing up, you agree to our Terms , Data Policy and Cookies Policy . </p>
                 </div>
             

@@ -1,7 +1,28 @@
-import React from 'react'
+import React,{useState} from 'react'
 import logo from './pics/logo.png'
+import axios from 'axios'
 
 const Login = () => {
+
+    const [email,setemail]=useState('')
+    const [password,setpassword]=useState('')
+
+    const emailHandler=(e)=>{
+        setemail(e.target.value)
+    }
+    const passHandler=(e)=>{
+        setpassword(e.target.value)
+    }
+
+    const onLogin=(email,password)=>{
+        axios.post(`http://localhost:5000/login`,{email,password})
+            .then((response)=>{
+                console.log("done")
+            })
+            .catch((err)=>{throw err})
+
+    }
+
     return (
         <div className="loginCont">
             <div className="login">
@@ -13,12 +34,12 @@ const Login = () => {
                 </div>
                 <div className="inputs">
 
-                <input placeholder="Email" name="email" required/>
+                <input placeholder="Email" name="email" onChange={emailHandler} required/>
 
-                <input placeholder="Password" name="password" type="password" required/>
+                <input placeholder="Password" name="password" type="password" onChange={passHandler} required/>
                 </div>
                 <div className="signup">
-                    <button >Login</button>
+                    <button onClick={onLogin} >Login</button>
                     <p>Login to enroll in courses and more . </p>
                 </div>
             </div>
