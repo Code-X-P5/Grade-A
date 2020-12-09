@@ -10,28 +10,28 @@ const [password,setpassword]=useState('')
 const [confPassword,setconfPassword]=useState('')
 const [phone,setphone]=useState('')
 const [adress,setadress]=useState('')
-const [role,setrole]=useState('')
+const [role,setrole]=useState('student')
 
-const userHandler=(e)=>{
-    setuserName(e.target.value);
-    let name =userName
-    console.log(name)
-}
-const emailHandler=(e)=>{
-    setemail(e.target.value)
-}
-const passHandler=(e)=>{
-    setpassword(e.target.value)
-}
-const confPassHandler=(e)=>{
-    setconfPassword(e.target.value)
-}
-const phoneHandler=(e)=>{
-    setphone(e.target.value)
-}
-const adressHandler=(e)=>{
-    setadress(e.target.value)
-}
+// const userHandler=(e)=>{
+//     setuserName(e.target.value);
+//     let name =userName
+//     console.log(name)
+// }
+// const emailHandler=(e)=>{
+//     setemail(e.target.value)
+// }
+// const passHandler=(e)=>{
+//     setpassword(e.target.value)
+// }
+// const confPassHandler=(e)=>{
+//     setconfPassword(e.target.value)
+// }
+// const phoneHandler=(e)=>{
+//     setphone(e.target.value)
+// }
+// const adressHandler=(e)=>{
+//     setadress(e.target.value)
+// }
 const roleHandler=()=>{
     setrole("instructor")
 }
@@ -52,24 +52,24 @@ const onSignUp=(name,adress,email,password,phone)=>{
                 </div>
                 <div className="s-border"></div>
                 <div className="inputs">
-                    <input placeholder="User Name" name="text" onChange={userHandler} required/>
+                    <input placeholder="User Name" name="text" onChange={(e)=>setuserName(e.target.value)} required/>
 
-                    <input placeholder="Email" name="email" onChange={emailHandler} required/>
+                    <input placeholder="Email" name="email" onChange={(e)=>setemail(e.target.value)} required/>
 
-                    <input placeholder="Password" name="password" type="password" onChange={passHandler} required/>
+                    <input placeholder="Password" name="password" type="password" onChange={(e)=>setpassword(e.target.value)}required/>
 
-                    <input placeholder="Confirm Password" name="password" type="password" onChange={confPassHandler} required/>
+                    <input placeholder="Confirm Password" name="password" type="password" onChange={(e)=>setconfPassword(e.target.value)} required/>
 
-                    <input placeholder="Phone Number" name="number" type="number" onChange={phoneHandler} required/>
+                    <input placeholder="Phone Number" name="number" type="number" onChange={(e)=>setphone(e.target.value)} required/>
 
-                    <input placeholder="Adress" name="text" onChange={adressHandler} required/>
+                    <input placeholder="Adress" name="text" onChange={(e)=>setadress(e.target.value)} required/>
                 </div>
                 <div className="check">
                             <input type="checkbox" name="" onClick={roleHandler} ></input>
                             <label > Register as a Instructor</label>
                         </div>
                 <div className="signup">
-                    <button onClick={onSignUp()}>Sign Up</button>
+                    <button onClick={()=>onSignUp(userName,email,password,phone,adress)}>Sign Up</button>
                     <p>By signing up, you agree to our Terms , Data Policy and Cookies Policy . </p>
                 </div>
             
