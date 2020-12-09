@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Register from './components/Register';
+import Login from './components/Login';
 
 const App = () => {
 
@@ -14,6 +15,9 @@ const App = () => {
       </Route>
       <Route exact path="/register">
         <Register/>
+      </Route>
+      <Route exact path="/login">
+        <Login/>
       </Route>
     </Router>
   );
