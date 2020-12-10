@@ -11,34 +11,30 @@ const [confPassword,setconfPassword]=useState('')
 const [phone,setphone]=useState('')
 const [adress,setadress]=useState('')
 const [role,setrole]=useState('student')
+const [emailErr,setemailErr]=useState('')
+const [userErr,setuserErr]=useState('')
+const [passErr,setpassErr]=useState('')
 
-// const userHandler=(e)=>{
-//     setuserName(e.target.value);
-//     let name =userName
-//     console.log(name)
-// }
-// const emailHandler=(e)=>{
-//     setemail(e.target.value)
-// }
-// const passHandler=(e)=>{
-//     setpassword(e.target.value)
-// }
-// const confPassHandler=(e)=>{
-//     setconfPassword(e.target.value)
-// }
-// const phoneHandler=(e)=>{
-//     setphone(e.target.value)
-// }
-// const adressHandler=(e)=>{
-//     setadress(e.target.value)
-// }
 const roleHandler=()=>{
     setrole("instructor")
 }
-const onSignUp=(name,adress,email,password,phone)=>{
-    axios.post(`http://localhost:5000/registration/register/${role}`,{name,adress,email,password,phone})
+const passMatch=(password,confPassword)=>{
+    if(password !== confPassword){
+        setpassErr(true);
+        console.log(passErr)
+        console.log("not match")
+    }
+}
+const onSignUp=(name,email,adress,password,phone)=>{
+    console.log(passErr)
+    if(passErr) return "error"
+    axios.post(`http://localhost:5000/registration/register/${role}`,{name,email,adress,password,phone})
         .then((response)=>{
-            console.log("done")
+            if(response.data==="Email is used.."){
+                setemailErr(true)
+            }else if(response.data==="User name is used.."){
+                setuserErr(true)
+            }
         })
         .catch((err)=>{throw err})
 }
@@ -52,14 +48,13 @@ const onSignUp=(name,adress,email,password,phone)=>{
                 </div>
                 <div className="s-border"></div>
                 <div className="inputs">
-                    <input placeholder="User Name" name="text" onChange={(e)=>setuserName(e.target.value)} required/>
-
-                    <input placeholder="Email" name="email" onChange={(e)=>setemail(e.target.value)} required/>
-
-                    <input placeholder="Password" name="password" type="password" onChange={(e)=>setpassword(e.target.value)}required/>
-
-                    <input placeholder="Confirm Password" name="password" type="password" onChange={(e)=>setconfPassword(e.target.value)} required/>
-
+                    <input placeholder="User Name" name="text" onChange={(e)=>{setuserName(e.target.value); setuserErr(false)}} required/>
+                    <h5>{userErr?(<span>User is already used...</span>):''}</h5>
+                    <input placeholder="Email" name="email" onChange={(e)=>{setemail(e.target.value);setemailErr(false)}} required/>
+                    <h5>{emailErr?(<span>Email is already used...</span>):(<span></span>)}</h5>
+                    <input placeholder="Password" name="password" type="password" onChange={(e)=>{setpassword(e.target.value);setpassErr(false)}}required/>
+                    <input placeholder="Confirm Password" name="password" type="password" onChange={(e)=>{setconfPassword(e.target.value);;setpassErr(false)}} required/>
+                    <h5>{passErr?(<span>Passwords doesn't match</span>):''}</h5>
                     <input placeholder="Phone Number" name="number" type="number" onChange={(e)=>setphone(e.target.value)} required/>
 
                     <input placeholder="Adress" name="text" onChange={(e)=>setadress(e.target.value)} required/>
@@ -69,7 +64,7 @@ const onSignUp=(name,adress,email,password,phone)=>{
                             <label > Register as a Instructor</label>
                         </div>
                 <div className="signup">
-                    <button onClick={()=>onSignUp(userName,email,password,phone,adress)}>Sign Up</button>
+                    <button onClick={()=>{passMatch(password,confPassword);onSignUp(userName,email,adress,password,phone,passErr)}}>Sign Up</button>
                     <p>By signing up, you agree to our Terms , Data Policy and Cookies Policy . </p>
                 </div>
             
