@@ -6,21 +6,29 @@ const Login = () => {
 
     const [email,setemail]=useState('')
     const [password,setpassword]=useState('')
+    const [logErr,setlogErr]=useState('')
+    const [token,settoken]=useState('')
 
     const emailHandler=(e)=>{
         setemail(e.target.value)
+        setlogErr(false)
     }
     const passHandler=(e)=>{
-        setpassword(e.target.value)
+        setpassword(e.target.value);
+        setlogErr(false)
     }
 
     const onLogin=(email,password)=>{
         axios.post(`http://localhost:5000/login`,{email,password})
             .then((response)=>{
-                console.log("done")
+                if(response.data==="Invalid Email or password.."){
+                    setlogErr(true)
+                }else{
+                    const stoken=response.data
+                    settoken(stoken)
+                }
             })
             .catch((err)=>{throw err})
-
     }
 
     return (
@@ -35,11 +43,11 @@ const Login = () => {
                 <div className="inputs">
 
                 <input placeholder="Email" name="email" onChange={emailHandler} required/>
-
-                <input placeholder="Password" name="password" type="password" onChange={passHandler} required/>
+                <input placeholder="Password" name="password" type="password" onChange={passHandler}  required/>
+                <h5>{logErr?(<span>Invalid Email or password..</span>):""}</h5>
                 </div>
                 <div className="signup">
-                    <button onClick={onLogin} >Login</button>
+                    <button onClick={()=>onLogin(email,password)} >Login</button>
                     <p>Login to enroll in courses and more . </p>
                 </div>
             </div>
