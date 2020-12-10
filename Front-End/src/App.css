@@ -398,6 +398,7 @@ input::-webkit-inner-spin-button {
   color: #ffffff;
   font-size: large;
   font-weight: bold;
+  outline: none;
 }
 
 .signup button:hover{
@@ -460,6 +461,7 @@ input::-webkit-inner-spin-button {
   width: 80%;
   margin: 20px 0 0 11%;
 }
+
 
 .not-sign{
   border: 1px solid #DBDBDB ;

@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import logo from './pics/logo.png'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom';
 
 const Login = () => {
+    const history = useHistory();
 
     const [email,setemail]=useState('')
     const [password,setpassword]=useState('')
@@ -25,10 +27,12 @@ const Login = () => {
                     setlogErr(true)
                 }else{
                     const stoken=response.data
-                    settoken(stoken)
+                    settoken(stoken);
+                    history.push("/");
                 }
             })
             .catch((err)=>{throw err})
+            
     }
 
     return (

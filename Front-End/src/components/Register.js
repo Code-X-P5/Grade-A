@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
 import logo from './pics/logo.png'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom';
 
 const Register = () => {
 
+const history = useHistory();    
 const [userName,setuserName]=useState('')
 const [email,setemail]=useState('')
 const [password,setpassword]=useState('')
@@ -34,6 +36,8 @@ const onSignUp=(name,email,adress,password,phone)=>{
                 setemailErr(true)
             }else if(response.data==="User name is used.."){
                 setuserErr(true)
+            }else{
+                history.push("/");
             }
         })
         .catch((err)=>{throw err})
