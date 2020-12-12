@@ -7,13 +7,13 @@ import support from './pics/support.jpg';
 import ios from './pics/ios.png';
 import webdev from './pics/webdev.jpg';
 
-const TopCategories = (props) => {
-	const category = props.categories.map((elem, i) => (
+const AllCourses = (props) => {
+	const course = props.allCourses.map((elem, i) => (
 		<div
 			className='card'
-			key={i}
-			onClick={props.categoryCourses.bind(this, elem.id, elem.name)}>
-			<Link to={`/categories/${elem.id}`}>
+			onClick={props.courseDetails.bind(this, elem.id)}
+			key={i}>
+			<Link to={`/courses/${elem.id}`}>
 				<img src={android}></img>
 				<h2>{elem.name}</h2>
 			</Link>
@@ -21,10 +21,10 @@ const TopCategories = (props) => {
 	));
 	return (
 		<div className='cards'>
-			<h1 className='tt'>Top categories</h1>
-			{category}
+			<h1 className='tt'>All Courses</h1>
+			{course}
 		</div>
 	);
 };
 
-export default TopCategories;
+export default AllCourses;

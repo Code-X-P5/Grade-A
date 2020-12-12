@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AdminPage from './components/AdminPage';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -19,13 +20,12 @@ const App = () => {
       <Route exact path="/login">
         <Login/>
       </Route>
+      <Route exact path='/admin'>
+        <AdminPage/>
+      </Route>
+      <Home/>
     </Router>
   );
 };
 
 export default App;
-
-
-
-
-
