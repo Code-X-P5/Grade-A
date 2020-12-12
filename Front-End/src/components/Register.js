@@ -68,7 +68,7 @@ const onSignUp=(name,email,adress,password,phone)=>{
                             <label > Register as a Instructor</label>
                         </div>
                 <div className="signup">
-                    <button onClick={()=>{passMatch(password,confPassword);onSignUp(userName,email,adress,password,phone,passErr)}}>Sign Up</button>
+                    <button onClick={()=>{onSignUp(userName,email,adress,password,phone,passErr)}}>Sign Up</button>
                     <p>By signing up, you agree to our Terms , Data Policy and Cookies Policy . </p>
                 </div>
             

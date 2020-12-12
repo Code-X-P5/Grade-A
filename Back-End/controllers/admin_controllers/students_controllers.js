@@ -10,9 +10,8 @@ const students_details = (req, res) => {
 };
 
 const disable_user = (req, res) => {
-	const {name}=req.body
-	const query = `UPDATE users SET isDisabled = 1 WHERE name = ?`;
-	const data = name;
+	const query = `UPDATE users SET isDisabled = 1 WHERE id = ?`;
+	const data = req.params.id;
 	db.query(query, data, (err, result) => {
 		if (err) throw err;
 		res.json(result);
