@@ -25,15 +25,17 @@ const passMatch=(password,confPassword)=>{
         setpassErr(true);
     }
 }
-const signup=(name,email,adress,password,phone)=>{
-    if(passErr) return "error"
-    axios.post(`http://localhost:5000/registration/register/${role}`,{name,email,adress,password,phone})
+const signup=(name,email,adress,password,phone,confPassword)=>{
+    axios.post(`http://localhost:5000/registration/register/${role}`,{name,email,adress,password,phone,confPassword})
         .then((response)=>{
-            if(response.data==="Email is used.."){
+            if(response.data === "Email is used.."){
                 setemailErr(true)
-            }else if(response.data==="User name is used.."){
+            }else if(response.data === "User name is used.."){
                 setuserErr(true)
-            }else{
+            }else if(response.data === "Passwords don't match.."){
+                setpassErr(true)
+            }
+            else{
                 history.push("/");
             }
         })
@@ -66,7 +68,7 @@ const signup=(name,email,adress,password,phone)=>{
                         </div>
                 <div className="signup">
 
-                    <button onClick={()=>{passMatch(password,confPassword);signup(userName,email,adress,password,phone,passErr)}}>Sign Up</button>
+                    <button onClick={()=>{signup(userName,email,adress,password,phone,confPassword)}}>Sign Up</button>
                     <p>By signing up, you agree to our Terms , Data Policy and Cookies Policy . </p>
                 </div>
             
