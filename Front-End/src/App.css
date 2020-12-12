@@ -456,10 +456,10 @@ h2 {
 
 /*-------------------------------------------Register------------------------------*/
 
-.register-cont {
+.registerCont{
   height: 100vh;
   width: 100%;
-  background-color: #fafafa;
+  background-color: #FAFAFA;
   position: fixed;
   display: flex;
   align-items: center;
@@ -467,8 +467,8 @@ h2 {
   flex-direction: column;
 }
 
-.register {
-  border: 1px solid #dbdbdb;
+.register{
+  border: 1px solid #DBDBDB ;
   background-color: #ffffff;
   height: 650px;
   width: 340px;
@@ -476,7 +476,7 @@ h2 {
   box-shadow: 1px 2px 5px #888888;
 }
 
-.register-logo {
+.registerLogo{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -485,38 +485,38 @@ h2 {
   line-height: 60px;
 }
 
-.register-logo img {
+.registerLogo img{
   width: 50%;
   height: 60px;
   display: flex;
   justify-content: center;
 }
 
-.register-logo p {
+.registerLogo p{
   font-size: larger;
   font-weight: 900;
-  color: #8e8e8e;
+  color: #8E8E8E;
 }
 
-.s-border {
-  border-top: 2px solid #dbdbdb;
+.s-border{
+  border-top: 2px solid  #DBDBDB;
   width: 80%;
-  margin: -10px 0 20px 10%;
+  margin:-10px 0 20px 10%;
 }
 
-.inputs {
+.inputs{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.inputs input {
+.inputs input{
   width: 80%;
   height: 35px;
   outline: none;
   margin-top: 10px;
-  background-color: #fafafa;
-  border: 1px solid #dbdbdb;
+  background-color: #FAFAFA;
+  border: 1px solid #DBDBDB;
   padding-left: 5px;
   border-radius: 5px;
 }
@@ -527,7 +527,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.signup {
+.signup{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -537,16 +537,16 @@ input::-webkit-inner-spin-button {
   margin-left: 10%;
 }
 
-.signup p {
+.signup p{
   margin-top: 15px;
   font-size: small;
   text-align: center;
 }
 
-.signup button {
+.signup button{
   height: 30px;
   width: 100%;
-  background-color: #b2dffc;
+  background-color: #B2DFFC;
   border: none;
   border-radius: 5px;
   color: #ffffff;
@@ -555,13 +555,13 @@ input::-webkit-inner-spin-button {
   outline: none;
 }
 
-.signup button:hover {
+.signup button:hover{
   cursor: pointer;
-  background-color: #0384fc;
+  background-color:#0384fc;
 }
 
-.is-sign {
-  border: 1px solid #dbdbdb;
+.is-sign{
+  border: 1px solid #DBDBDB ;
   background-color: #ffffff;
   height: 50px;
   width: 340px;
@@ -572,54 +572,55 @@ input::-webkit-inner-spin-button {
   box-shadow: 1px 2px 5px #888888;
 }
 
-.check {
-  margin: 17px 0 0 10%;
+.check{
+  margin:17px 0 0 10%
 }
 
-.is-sign a {
+.is-sign a{
   margin-left: 3px;
   text-decoration: none;
   color: #0384fc;
 }
 
-.inputs span {
+.inputs span{
   color: red;
 }
 /*----------------------------------------Login------------------------------------*/
 
-.login-logo img {
+.loginLogo img{
   width: 50%;
   height: 60px;
   margin: 40px 0 0 25%;
 }
 
-.login-logo p {
+.loginLogo p{
   font-size: larger;
   font-weight: 900;
-  color: #8e8e8e;
+  color: #8E8E8E;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
 }
 
-.login {
-  border: 1px solid #dbdbdb;
+.login{
+  border: 1px solid #DBDBDB ;
   background-color: #ffffff;
   height: 370px;
   width: 340px;
-  margin: 6% 0 0 40%;
+  margin:6% 0 0 40%;
   box-shadow: 1px 2px 5px #888888;
 }
 
-.l-border {
-  border-top: 2px solid #dbdbdb;
+.l-border{
+  border-top: 2px solid #DBDBDB;
   width: 80%;
   margin: 20px 0 0 11%;
 }
 
-.not-sign {
-  border: 1px solid #dbdbdb;
+
+.not-sign{
+  border: 1px solid #DBDBDB ;
   background-color: #ffffff;
   height: 70px;
   width: 340px;
@@ -631,7 +632,7 @@ input::-webkit-inner-spin-button {
   box-shadow: 1px 2px 5px #888888;
 }
 
-.not-sign a {
+.not-sign a{
   margin-left: 3px;
   text-decoration: none;
   color: #0384fc;

@@ -20,7 +20,7 @@ const Login = () => {
         setlogErr(false)
     }
 
-    const login=(email,password)=>{
+    const onLogin=(email,password)=>{
         axios.post(`http://localhost:5000/login`,{email,password})
             .then((response)=>{
                 if(response.data==="Invalid Email or password.."){
@@ -38,7 +38,7 @@ const Login = () => {
     return (
         <div className="loginCont">
             <div className="login">
-                <div className="login-logo">
+                <div className="loginLogo">
                     <img src={logo} alt=""></img>
                     <p>Log In as student or Instructor</p>
                     <div className="l-border"></div>
@@ -51,7 +51,7 @@ const Login = () => {
                 <h5>{logErr?(<span>Invalid Email or password..</span>):""}</h5>
                 </div>
                 <div className="signup">
-                    <button onClick={()=>login(email,password)} >Login</button>
+                    <button onClick={()=>onLogin(email,password)} >Login</button>
                     <p>Login to enroll in courses and more . </p>
                 </div>
             </div>
