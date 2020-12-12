@@ -23,12 +23,9 @@ const roleHandler=()=>{
 const passMatch=(password,confPassword)=>{
     if(password !== confPassword){
         setpassErr(true);
-        console.log(passErr)
-        console.log("not match")
     }
 }
-const onSignUp=(name,email,adress,password,phone)=>{
-    console.log(passErr)
+const signup=(name,email,adress,password,phone)=>{
     if(passErr) return "error"
     axios.post(`http://localhost:5000/registration/register/${role}`,{name,email,adress,password,phone})
         .then((response)=>{
@@ -44,9 +41,9 @@ const onSignUp=(name,email,adress,password,phone)=>{
 }
 
     return (
-        <div className="registerCont">
+        <div className="register-cont">
             <div className="register">
-                <div className="registerLogo">
+                <div className="register-logo">
                     <img src={logo} alt=""></img>
                     <p>Sign Up as student or Instructor</p>
                 </div>
@@ -69,7 +66,7 @@ const onSignUp=(name,email,adress,password,phone)=>{
                         </div>
                 <div className="signup">
 
-                    <button onClick={()=>{passMatch(password,confPassword);onSignUp(userName,email,adress,password,phone,passErr)}}>Sign Up</button>
+                    <button onClick={()=>{passMatch(password,confPassword);signup(userName,email,adress,password,phone,passErr)}}>Sign Up</button>
                     <p>By signing up, you agree to our Terms , Data Policy and Cookies Policy . </p>
                 </div>
             
