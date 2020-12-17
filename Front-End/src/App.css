@@ -541,8 +541,8 @@
 }
 
 .card img {
-  height: 310px;
-  width: 300px;
+  width: 100%;
+  height: 87%;
 }
 
 .card_course {
@@ -1003,4 +1003,12 @@ input::-webkit-inner-spin-button {
 .real-rs a{
   text-decoration: none;
   color: #464644;
+}
+
+.coursesSide{
+  margin-top: 50px;
+}
+
+.coursesSide a{
+  text-decoration: none;
 }

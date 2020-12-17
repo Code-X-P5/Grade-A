@@ -47,12 +47,12 @@ const Filter = () => {
 			<div className='coursesSide' >
 				<div>
 					<div className='drop-button'> My Courses</div>
-					<div  >
+					<div>
 						{
 							enrollmentCourses.map((e, i) => {
 								return (
-									<div>
-										<Link to={`/students/courses/${e.courses_id}`} key={i}>
+									<div >
+										<Link to={`/students/courses/${e.courses_id}`} key={i} >
 											{e.name}
 										</Link>
 									</div>
