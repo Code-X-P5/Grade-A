@@ -9,7 +9,7 @@ const Result = ({ result, input }) => {
                 {
                 result.map((course, i) => {
                     return <div key={i}>
-                        <Link to={`/courses/${course.id}`}>
+                        <Link to={`/students/courses/${course.id}`}>
                             <div className="cs" >
                                 <img src={`${course.img_url}`} alt={`${course.name}`} />
                                 <h2>{course.name}</h2>
