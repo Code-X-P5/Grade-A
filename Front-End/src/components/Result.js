@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 const Result = ({ result, input }) => {
     const count = result.reduce((acc) => acc + 1, 0)
     if (result.length) return (
-        <div className='cards'>
+        <div className='search-rst'>
             <h1>{count} results for "{input}"</h1>
-            {
+            <div className="real-rs">
+                {
                 result.map((course, i) => {
                     return <div key={i}>
                         <Link to={`/courses/${course.id}`}>
-                            <div className="card_course" >
+                            <div className="cs" >
                                 <img src={`${course.img_url}`} alt={`${course.name}`} />
                                 <h2>{course.name}</h2>
                             </div>
@@ -17,6 +18,8 @@ const Result = ({ result, input }) => {
                     </div>
                 })
             }
+            </div>
+            
         </div>
     )
     return (
