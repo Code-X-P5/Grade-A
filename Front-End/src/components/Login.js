@@ -27,7 +27,7 @@ const Login = () => {
                     setlogErr(true)
                 } else {
                     const token = response.data
-                    localStorage.setItem('token',token)
+                    localStorage.setItem('token', token)
                     history.push("/");
                 }
             })
@@ -42,7 +42,7 @@ const Login = () => {
                     <img src={logo} alt=""></img>
                     <p>Log In as student or Instructor</p>
                     <div className="l-border"></div>
-                    </div>
+                </div>
                 <div className="inputs">
                     <input placeholder="Email" name="email" onChange={emailHandler} required />
                     <input placeholder="Password" name="password" type="password" onChange={passHandler} required />
