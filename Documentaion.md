@@ -4,7 +4,7 @@ Is a coding academy management system that manages students', courses and instru
 ​
 ## Team
 ​
-- **Scrum Master**: [Shehadeh Almomany]()
+- **Scrum Master**: [Shehadeh Almomani]()
 - **Development Team Members**: [Alaa Alkhalaileh], [Fadi Alfuqaha], [Omar Alkhatib]
 ​
 ## Table of Contents
