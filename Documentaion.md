@@ -56,6 +56,9 @@ Is a coding academy management system that manages students', courses and instru
 ## HowToRun
 ​
 -Clone file from repository.
+
 -Create your database using the db.js schema file.
+
 -npm i ,npm start, npm run dev
+
 -Register users and enjoy using the application.
