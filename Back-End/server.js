@@ -13,13 +13,11 @@ const io = socketio(server, {
 });
 
 const mainRouter = require("./routes/main-route");
-const registerRouter = require('./routes/registration.route')
 const db = require("./db");
 
 app.use(cors());
 app.use(express.json());
 app.use(mainRouter);
-app.use(registerRouter);
 
 app.post('/messeges', (req, res) => {
   const { stuID, insID, message, sender } = req.body;

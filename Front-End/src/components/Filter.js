@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-let token = localStorage.getItem('token');
-const decoded = jwt_decode(token);
-let id = decoded.id
+import { LocalStorage } from './LocalStorage';
+
 const Filter = () => {
 	const [categories, setCategories] = useState([]);
 	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
 	const [allInstructors, setAllInstructors] = useState([]);
 	const [toggle, setToggle] = useState(true);
+	const [token, setToken] = LocalStorage('token', '');
+	const decoded = jwt_decode(token);
+	let id = decoded.id;
 
 	useEffect(() => {
 		getAllCategories()
@@ -99,7 +101,5 @@ const Filter = () => {
 }
 
 export default Filter
-
-
 
 

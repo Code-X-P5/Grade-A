@@ -3,12 +3,14 @@ import logo from './pics/logo.png';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import { LocalStorage } from './LocalStorage';
 
 const Login = () => {
     const history = useHistory();
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     const [logErr, setlogErr] = useState('');
+    const [token, setToken] = LocalStorage('token', '');
 
     const emailHandler = (e) => {
         setemail(e.target.value);
@@ -21,20 +23,18 @@ const Login = () => {
 
     const login = (email, password) => {
         axios
-            .post(`http://localhost:5000/login`, { email, password, })
-            .then((response) => {
-                if (response.data === 'Invalid Email or password..') {
+            .post(`http://localhost:5000/registration/login`, { email, password })
+            .then((res) => {
+                if (res.data === 'Invalid Email or password..') {
                     setlogErr(true);
                 } else {
-                    const token = response.data;
-                    localStorage.setItem('token', token);
-                    const decoded = jwt_decode(token);
-                    console.log(decoded.role_id);
+                    setToken(res.data)
+                    const decoded = jwt_decode(res.data);
                     if (decoded.role_id === 3) {
                         history.push('/students');
                         window.location.reload();
                     } else if (decoded.role_id === 2) {
-                        history.push('/instructors/account');
+                        history.push('/instructors');
                         window.location.reload();
                     } else if (decoded.role_id === 1) {
                         history.push('/admin');
