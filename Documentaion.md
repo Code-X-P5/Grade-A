@@ -4,8 +4,11 @@ Is a coding academy management system that manages students', courses and instru
 ​
 ## Team
 ​
-- **Scrum Master**: [Shehadeh Almomani]()
-- **Development Team Members**: [Alaa Alkhalaileh], [Fadi Alfuqaha], [Omar Alkhatib]
+- **Scrum Master**: [Shehadeh Almomani] https://github.com/Shehadeh-Al-Momani ()
+- **Development Team Members**: 
+[Alaa Alkhalaileh] https://github.com/Alaa-Khalaila,
+[Fadi Alfuqaha] https://github.com/fadi-alfuqaha ,
+[Omar Alkhatib] https://github.com/Omar-Alkhatib
 ​
 ## Table of Contents
 ​
@@ -42,9 +45,11 @@ Is a coding academy management system that manages students', courses and instru
 -Mysql
 -React
 ​
-## DatabaseSchema
+## Database Schema
 ​
 > Using Mysql, will be provided.
+this is the link of the data base digrame 
+https://dbdiagram.io/d/5faa5d023a78976d7b7b4182
 ​
 ## Team
 ​
