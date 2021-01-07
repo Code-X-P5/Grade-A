@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Route } from 'react-router-dom';
+import React, { useState, useEffect,useRef } from 'react';
 import axios from "axios";
 import jwt_decode from 'jwt-decode';
 import './Chat.css';
+import { LocalStorage } from './LocalStorage';
 import useChat from './useChat';
-let token = localStorage.getItem('token');
-const decoded = jwt_decode(token);
-let cuurentUser = decoded.id;
 
 const Chat = (props) => {
   const { match: { params: { id } } } = props;
+  const [token, setToken] = LocalStorage('token', '');
+  const decoded = jwt_decode(token);
   let otherUser = id, stuId, insID;
-
+  let cuurentUser = decoded.id;
   if (decoded.role_id === 3) { stuId = cuurentUser; insID = id }
   if (decoded.role_id === 2) { stuId = id; insID = cuurentUser }
   const [newMessage, setNewMessage] = useState('');
   const { messages, sendMessage } = useChat(newMessage, stuId, insID, cuurentUser);
-
-  const [allMsg, setAllMsg] = useState([]);
   const [user, setUser] = useState([]);
+  const messagesEndRef = useRef()
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView(
+        {
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest'
+        })
+    }
+  })
 
   useEffect(() => {
     getUser()
@@ -47,6 +56,7 @@ const Chat = (props) => {
             </div>
           ))}
         </ol>
+        <div ref={messagesEndRef} />
       </div>
       <div className='input-send'>
         <input value={newMessage} placeholder='Write message...' className='new-message-input-field' onChange={(e) => { setNewMessage(e.target.value) }}
@@ -58,4 +68,3 @@ const Chat = (props) => {
 };
 
 export default Chat;
-

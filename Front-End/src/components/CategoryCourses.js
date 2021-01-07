@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Filter from './Filter';
-const token = localStorage.getItem('token');
+import { LocalStorage } from './LocalStorage';
 
 const CategoryCourses = (props) => {
 	const { match: { params: { id } } } = props
 	const [allCourses, setAllCourses] = useState([]);
+	const [token, setToken] = LocalStorage('token', '');
 
 	useEffect(() => {
 		axios.get(`http://localhost:5000/students/category_courses/${id}`, { headers: { authorization: token }, })

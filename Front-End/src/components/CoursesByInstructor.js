@@ -3,14 +3,14 @@ import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
 import Filter from './Filter';
-
-const token = localStorage.getItem('token');
+import { LocalStorage } from './LocalStorage';
 
 const AllCourses = (props) => {
 	const { match: { params: { id } } } = props;
 	const [allCourses, setAllCourses] = useState([]);
 	const [details, setDetails] = useState([]);
 	const history = useHistory();
+	const [token, setToken] = LocalStorage('token', '');
 
 	useEffect(() => {
 		getAllCoursesByInstructor()

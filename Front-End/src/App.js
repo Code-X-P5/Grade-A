@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+import { LocalStorage } from './components/LocalStorage';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import TopCategories from './components/TopCategories';
@@ -17,16 +19,15 @@ import PageNotFound from './components/PageNotFound';
 import Instructors from "./components/Instructors";
 import StudentsDetails from './components/StudentsDetails';
 import InstructorsDetails from './components/InstructorsDetails';
-import jwt_decode from 'jwt-decode';
 import Welcom from './components/Welcom';
 import Students from './components/Students';
 import CoursesByInstructor from './components/CoursesByInstructor';
 import Chat from './components/Chat';
-let token = localStorage.getItem('token');
 
 const App = () => {
   const [key, setKey] = useState('');
   const [result, setResult] = useState([]);
+  const [token, setToken] = LocalStorage('token', '');
 
   if (!token) {
     return (

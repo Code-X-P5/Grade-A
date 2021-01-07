@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-const token = localStorage.getItem('token');
-const decoded = jwt_decode(token);
-let stuId = decoded.id;
+import { LocalStorage } from './LocalStorage';
 
 const Course = ({ match: { params: { id }, }, }) => {
 	const [course, setCourse] = useState([]);
 	const [enrollmentCourses, setEnrollmentCourses] = useState([]);
+	const [token, setToken] = LocalStorage('token', '');
+	const decoded = jwt_decode(token);
+	let stuId = decoded.id;
 
 	useEffect(() => {
 		axios
