@@ -61,6 +61,9 @@ https://dbdiagram.io/d/5faa5d023a78976d7b7b4182
 ## HowToRun
 ​
 -Clone file from repository.
+
 -Create your database using the db.js schema file.
+
 -npm i ,npm start, npm run dev
+
 -Register users and enjoy using the application.
